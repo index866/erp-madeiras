@@ -57,8 +57,17 @@ export async function abrirPedidoVenda() {
       .item-sub { font-size: 11px; color: #666; display: flex; justify-content: space-between; }
       .loader-text { color: #0284c7; font-size: 11px; font-weight: bold; font-style: italic; display: none; }
       .success-text { color: #16a34a; font-size: 11px; font-weight: bold; display: none; }
+    
+      .erp-container { max-width: 1100px; margin: 20px auto; font-family: 'Segoe UI', sans-serif; background: #f8fafc; padding: 20px; }
+      .card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+      .grid-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 15px; }
+      .field { display: flex; flex-direction: column; gap: 5px; }
+      label { font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; }
+      input, select { padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; width: 100%; box-sizing: border-box; }
+      .bottom-section { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+      .resumo-card { background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; }
     </style>
-
+    <div class="card">
     <div class="bling-container">
       <h2>Pedido de Venda</h2>
 
@@ -80,7 +89,9 @@ export async function abrirPedidoVenda() {
           <input type="text" id="vendedor" placeholder="Nome do vendedor">
         </div>
       </div>
+</div>
 
+<div class="card">
       <div id="dados-cliente-panel">
         <strong style="display:block; margin-bottom:10px; font-size:13px; color:#333;">Dados do Cliente Expandidos</strong>
         <div class="bling-row">
@@ -124,9 +135,18 @@ export async function abrirPedidoVenda() {
             <div class="bling-col"><label>Email</label><input type="email" id="cliente_email"></div>
         </div>
       </div>
-
+</div>
+<div class="card">
       <div class="section-divider">
         <div class="section-tab active">Itens de produtos ou serviços</div>
+      </div>
+
+
+      <div style="margin-bottom: 20px; display:flex; gap:10px; align-items:center; position:relative;">
+        <div style="flex: 1; max-width: 500px; position:relative;">
+            <input type="text" id="busca-item" placeholder="🛒 Digite o nome ou SKU para inserir na tabela ...." style="border-color:#337ab7;" autocomplete="off">
+            <div id="autocomplete-produtos" class="autocomplete-list"></div>
+        </div>
       </div>
 
       <table>
@@ -144,13 +164,8 @@ export async function abrirPedidoVenda() {
         </thead>
         <tbody id="tabela-corpo"></tbody>
       </table>
-
-      <div style="margin-bottom: 20px; display:flex; gap:10px; align-items:center; position:relative;">
-        <div style="flex: 1; max-width: 500px; position:relative;">
-            <input type="text" id="busca-item" placeholder="🛒 Digite o nome ou SKU para inserir na tabela ...." style="border-color:#337ab7;" autocomplete="off">
-            <div id="autocomplete-produtos" class="autocomplete-list"></div>
-        </div>
-      </div>
+</div>
+<div class="card">
 
       <span class="section-title">Totais</span>
       <div class="bling-row">
@@ -166,17 +181,19 @@ export async function abrirPedidoVenda() {
       </div>
 
       <span class="section-title">Detalhes da venda</span>
+      
       <div class="bling-row">
         <div class="bling-col"><label>Data da venda</label><div class="input-group suffix"><input type="date" id="data_venda"></div></div>
         <div class="bling-col"><label>Data prevista de entrega</label><div class="input-group suffix"><input type="date" id="data_prevista_entrega"></div></div>
       </div>
+
       <div class="bling-row">
         <div class="bling-col"><label>Desconto (R$)</label><input type="text" class="recalculo-trigger" id="desconto" value="0,00"></div>
         <div class="bling-col"><label>Frete pago pelo cliente</label><div class="input-group prefix"><span class="input-group-addon">R$</span><input type="text" class="recalculo-trigger" id="frete_cliente" value="0,00"></div></div>
         <div class="bling-col"><label>Frete pago pela empresa</label><div class="input-group prefix"><span class="input-group-addon">R$</span><input type="text" id="frete_empresa" value="0,00"></div></div>
         <div class="bling-col"><label>Despesas</label><div class="input-group prefix"><span class="input-group-addon">R$</span><input type="text" class="recalculo-trigger" id="despesas" value="0,00"></div></div>
       </div>
-
+</div>
       <div class="section-divider"><div class="section-tab active">Pagamento</div></div>
       <div class="bling-row">
         <div class="bling-col-fixed" style="width: 250px;">
@@ -186,6 +203,8 @@ export async function abrirPedidoVenda() {
           </select>
         </div>
       </div>
+
+<div class="card">
 
       <span class="section-title">Dados adicionais</span>
       <div class="bling-row">
@@ -200,6 +219,7 @@ export async function abrirPedidoVenda() {
       </div>
 
     </div>
+</div>
   `;
 
   // ==========================================
